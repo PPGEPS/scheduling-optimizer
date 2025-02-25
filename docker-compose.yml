@@ -26,7 +26,6 @@ services:
       - app-network
     environment:
       - PYTHONUNBUFFERED=1
-    command: python main.py
 
 volumes:
   db_data:

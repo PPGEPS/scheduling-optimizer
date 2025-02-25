@@ -2,3 +2,5 @@ numpy
 pandas
 pymoo
 psycopg2-binary
+scikit-learn
+matplotlib
