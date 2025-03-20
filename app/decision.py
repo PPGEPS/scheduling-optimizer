@@ -9,7 +9,7 @@ warnings.filterwarnings('ignore', category=UserWarning, message='pandas only sup
 def conectar_banco():
     """Conecta ao banco de dados PostgreSQL"""
     conn = psycopg2.connect(
-        host="localhost",  # Use 'localhost' se estiver rodando localmente, db no Docker
+        host="db",  # Use 'localhost' se estiver rodando localmente, db no Docker
         database="teste",
         user="postgres",
         password="postgres"
@@ -97,6 +97,8 @@ def salvar_manutencoes_ordenadas(df):
     """Salva a lista ordenada no banco"""
     conn = conectar_banco()
     cursor = conn.cursor()
+
+    cursor.execute("DELETE FROM manutencoes_ordenadas")
 
     for _, row in df.iterrows():
         cursor.execute("""

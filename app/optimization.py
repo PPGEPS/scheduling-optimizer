@@ -12,7 +12,7 @@ warnings.filterwarnings('ignore', category=UserWarning, message='pandas only sup
 
 def conectar_banco():
     conn = psycopg2.connect(
-        host="localhost",  # 'db' se estiver rodando no Docker, senao localhost
+        host="db",  # 'db' se estiver rodando no Docker, senao localhost
         database="teste",
         user="postgres",
         password="postgres"
@@ -78,6 +78,8 @@ def criar_tabela_melhores_manutencoes():
 def salvar_melhores_manutencoes(manutencoes):
     conn = conectar_banco()
     cursor = conn.cursor()
+
+    cursor.execute("DELETE FROM melhores_manutencoes")
 
     for manutencao in manutencoes:
         cursor.execute("""
