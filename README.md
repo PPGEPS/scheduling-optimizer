@@ -40,3 +40,7 @@ decision.py: <br>
 Extrai os dados das manutenções otimizadas do banco de dados <br>
 Aplica o método TOPSIS para definir a prioridade de execução de acordo com: criticidade, custo e duração <br>
 Salva a lista otimizada e re-ordenada no banco de dados. <br><br>
+
+run.py: <br>
+É o código responsavel por rodar o otimization e o decision corretamente <br>
+Serve apenas para chamar os outros dois na ordem correta.
